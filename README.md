@@ -18,7 +18,7 @@ $ composer require ajur-media/template.flash
 // Start PHP session
 if (!session_id()) @session_start();
 
-App::$flash = new \AJUR\FlashMessages();
+App::$flash = new \AJUR\Template\FlashMessages();
 
 // or use DI Container
 

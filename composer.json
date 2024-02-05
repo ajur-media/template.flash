@@ -1,0 +1,29 @@
+{
+    "name": "ajur-media/template.flash",
+    "description": "Flash messages based on Slim Framework code",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^7.4 || 8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "AJUR\\Template\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Karel Wintersky",
+            "email": "karel.wintersky@gmail.com"
+        },
+        {
+            "name": "Josh Lockhart",
+            "email": "hello@joshlockhart.com",
+            "homepage": "http://joshlockhart.com"
+        }
+    ],
+    "require-dev": {
+        "rector/rector": "^0.19.8",
+        "phpunit/phpunit": "^4.0"
+    }
+}
