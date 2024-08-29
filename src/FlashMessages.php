@@ -18,21 +18,21 @@ class FlashMessages
      *
      * @var string[]
      */
-    protected $fromPrevious = [];
+    protected array $fromPrevious = [];
 
     /**
      * Messages for current request
      *
      * @var string[]
      */
-    protected $forNow = [];
+    protected array $forNow = [];
 
     /**
      * Messages for next request
      *
      * @var string[]
      */
-    protected $forNext = [];
+    protected array $forNext = [];
 
     /**
      * Message storage
@@ -46,12 +46,12 @@ class FlashMessages
      *
      * @var string
      */
-    protected $storageKey = 'slimFlash';
+    protected string $storageKey = 'slimFlash';
 
     /**
      * @return FlashMessages
      */
-    public static function getInstance()
+    public static function getInstance(): FlashMessages
     {
         if (!self::$instance) {
             self::$instance = new static($options);
@@ -86,7 +86,7 @@ class FlashMessages
         }
 
         // Load messages from previous request
-        if (isset($this->storage[$this->storageKey]) && is_array($this->storage[$this->storageKey])) {
+        if (isset($this->storage[$this->storageKey]) && \is_array($this->storage[$this->storageKey])) {
             $this->fromPrevious = $this->storage[$this->storageKey];
         }
         $this->storage[$this->storageKey] = [];
@@ -98,7 +98,7 @@ class FlashMessages
      * @param string $key The key to store the message under
      * @param mixed  $message Message to show on next request
      */
-    public function addMessage($key, $message): void
+    public function addMessage(string $key, $message): void
     {
         // Create Array for this key
         if (!isset($this->storage[$this->storageKey][$key])) {
@@ -115,7 +115,7 @@ class FlashMessages
      * @param string $key The key to store the message under
      * @param mixed  $message Message to show for the current request
      */
-    public function addMessageNow($key, $message): void
+    public function addMessageNow(string $key, $message): void
     {
         // Create Array for this key
         if (!isset($this->forNow[$key])) {
@@ -156,7 +156,7 @@ class FlashMessages
      * @param string $key The key to get the message from
      * @return mixed|null Returns the message
      */
-    public function getMessage($key)
+    public function getMessage(string $key)
     {
         $messages = $this->getMessages();
 
